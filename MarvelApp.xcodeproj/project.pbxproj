@@ -30,6 +30,8 @@
 		D3905A6723C75EC1000A9169 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3905A6523C75EC1000A9169 /* LaunchScreen.storyboard */; };
 		D3905A7223C75EC2000A9169 /* MarvelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3905A7123C75EC2000A9169 /* MarvelAppTests.swift */; };
 		D3905A7D23C75EC2000A9169 /* MarvelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3905A7C23C75EC2000A9169 /* MarvelAppUITests.swift */; };
+		D3C41D8D23C7C73D0071DDAD /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C41D8C23C7C73D0071DDAD /* ApiResponseModel.swift */; };
+		D3C41D8F23C7C77D0071DDAD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C41D8E23C7C77D0071DDAD /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		D3905A7823C75EC2000A9169 /* MarvelAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3905A7C23C75EC2000A9169 /* MarvelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAppUITests.swift; sourceTree = "<group>"; };
 		D3905A7E23C75EC2000A9169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3C41D8C23C7C73D0071DDAD /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
+		D3C41D8E23C7C77D0071DDAD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EB19F0C257F10670AA72AA8A /* Pods_MarvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -254,6 +258,8 @@
 			children = (
 				D38B84C923C789AA00936465 /* ComicBookModel.swift */,
 				D38B84D323C78E6600936465 /* Thumbnail.swift */,
+				D3C41D8C23C7C73D0071DDAD /* ApiResponseModel.swift */,
+				D3C41D8E23C7C77D0071DDAD /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -522,10 +528,12 @@
 				D38B84D223C78C7100936465 /* UITableViewCell+Extensions.swift in Sources */,
 				D38B84CA23C789AA00936465 /* ComicBookModel.swift in Sources */,
 				D3905A5F23C75EC0000A9169 /* MainViewController.swift in Sources */,
+				D3C41D8F23C7C77D0071DDAD /* DataModel.swift in Sources */,
 				D38B84CE23C78A6F00936465 /* ComicBookTableViewCell.swift in Sources */,
 				D38B84DF23C7940600936465 /* MarvelMainPresenter.swift in Sources */,
 				D38B84D423C78E6600936465 /* Thumbnail.swift in Sources */,
 				D36EB52C23C785B400E73FDA /* SwinjectStoryboard+Setup.swift in Sources */,
+				D3C41D8D23C7C73D0071DDAD /* ApiResponseModel.swift in Sources */,
 				D38B84D623C78FFD00936465 /* MarvelApiService.swift in Sources */,
 				D3905A5B23C75EC0000A9169 /* AppDelegate.swift in Sources */,
 				D38B84C623C7897B00936465 /* ApiService.swift in Sources */,

@@ -8,6 +8,10 @@
 
 import Foundation
 import RxSwift
+import Alamofire
+import RxCocoa
+import ObjectMapper
+import AlamofireObjectMapper
 
 class MarvelApiService: ApiService {
     let limit = 25
@@ -20,12 +24,40 @@ class MarvelApiService: ApiService {
 
     func getComics(offset: Int) -> Single<[ComicBookModel]> {
         let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)"
-        return Single.just([])
+        return self.makeRequest(endpoint: endpoint)
     }
     
     func getComics(query: String, offset: Int) -> Single<[ComicBookModel]> {
         let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)&query=\(query)"
-        return Single.just([])
+        return self.makeRequest(endpoint: endpoint)
     }
     
+    private func makeRequest(endpoint: String) -> Single<[ComicBookModel]> {
+        return Single<[ComicBookModel]>.create(subscribe: { (observer) -> Disposable in
+            let request = Alamofire.request(endpoint)
+            request.responseJSON { (response) in
+                guard
+                    let result = Mapper<ApiResponseModel>().map(JSONObject: response.result.value),
+                    let comicBooks = result.data?.results
+                else {
+                    observer(.error(BackendError.parsingError))
+                    return
+                }
+                
+                observer(.success(comicBooks))
+            }
+            
+            return Disposables.create { request.cancel() }
+        })
+    }
+}
+
+
+enum BackendError: Error, Equatable {
+    case noValue
+    case parsingError
+    case unauthorized
+    case forbidden
+    case badRequest
+    case error(BaseError)
 }
