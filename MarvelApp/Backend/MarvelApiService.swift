@@ -19,10 +19,13 @@ class MarvelApiService: ApiService {
     }
 
     func getComics(offset: Int) -> Single<[ComicBookModel]> {
+        let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)"
         return Single.just([])
     }
     
     func getComics(query: String, offset: Int) -> Single<[ComicBookModel]> {
+        let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)&query=\(query)"
         return Single.just([])
     }
+    
 }

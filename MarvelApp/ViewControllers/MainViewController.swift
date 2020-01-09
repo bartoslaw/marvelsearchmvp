@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
     
     private func setupViews() {
         self.topLabel.text = NSLocalizedString("main.title", comment: "")
+        
+        self.emptyView.isHidden = true
+        self.emptyViewTitle.text = NSLocalizedString("empty.results", comment: "")
     }
     
     private func setupTableView() {
@@ -48,7 +51,7 @@ class MainViewController: UIViewController {
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = NSLocalizedString("search.placeholder", comment: "")
         
-        navigationItem.searchController = searchController
+        self.navigationItem.searchController = self.searchController
         definesPresentationContext = true
     }
     

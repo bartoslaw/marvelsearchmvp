@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol MainPresenter: class {
+    var disposeBag: DisposeBag? { get set }
     var mainView: MainView? { get set }
     var apiService: ApiService? { get set }
     
