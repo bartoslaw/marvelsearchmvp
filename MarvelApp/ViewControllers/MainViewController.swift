@@ -62,11 +62,16 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.mainPresenter?.getItemsCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ComicBookTableViewCell.reuseIdentifier(), for: indexPath) as? ComicBookTableViewCell else { return UITableViewCell() }
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: ComicBookTableViewCell.reuseIdentifier(), for: indexPath) as? ComicBookTableViewCell,
+            let model = self.mainPresenter?.getItemAtPosition(index: indexPath.row)
+        else { return UITableViewCell() }
+        
+        cell.setupCell(model: model)
         
         return cell
     }

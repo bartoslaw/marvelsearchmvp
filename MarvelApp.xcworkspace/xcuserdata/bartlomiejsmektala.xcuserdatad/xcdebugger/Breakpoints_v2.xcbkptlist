@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "setupSearchController()"
+            landmarkName = "initData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
