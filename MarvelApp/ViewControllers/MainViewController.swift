@@ -11,8 +11,71 @@ import UIKit
 class MainViewController: UIViewController {
     var mainPresenter: MainPresenter?
     
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupViews()
+        self.setupTableView()
+        self.setupSearchController()
+        
+        self.initData()
+    }
+    
+    private func setupViews() {
+        self.topLabel.text = NSLocalizedString("main.title", comment: "")
+    }
+    
+    private func setupTableView() {
+        self.tableView.register(UINib.init(nibName: ComicBookTableViewCell.reuseIdentifier(), bundle: nil), forCellReuseIdentifier: ComicBookTableViewCell.reuseIdentifier())
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    private func setupSearchController() {
+        
+    }
+    
+    private func initData() {
+        self.mainPresenter?.mainView = self
+        self.mainPresenter?.getComics()
     }
 }
+
+extension MainViewController: UITableViewDelegate {
+    
+}
+
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ComicBookTableViewCell.reuseIdentifier(), for: indexPath) as? ComicBookTableViewCell else { return UITableViewCell() }
+        
+        return cell
+    }
+}
+
+extension MainViewController: MainView {
+    func updateTableView() {
+        
+    }
+    
+    func displayError() {
+        
+    }
+    
+    func emptyResults() {
+        
+    }
+}
+
 
