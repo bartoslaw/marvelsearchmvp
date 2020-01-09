@@ -52,12 +52,10 @@ class MarvelApiService: ApiService {
     }
 }
 
-
 enum BackendError: Error, Equatable {
     case noValue
     case parsingError
     case unauthorized
     case forbidden
     case badRequest
-    case error(BaseError)
 }

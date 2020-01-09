@@ -33,9 +33,9 @@ class MarvelMainPresenter: MainPresenter {
                 guard let context = self else { return }
                 
                 context.comicBooks.append(contentsOf: models)
-                context.mainView?.updateTableView()
-                context.isLoading = false
                 context.offset += 1
+                context.isLoading = false
+                context.mainView?.updateTableView()
                 
                 if context.comicBooks.isEmpty {
                     context.mainView?.emptyResults()
@@ -62,9 +62,9 @@ class MarvelMainPresenter: MainPresenter {
                 guard let context = self else { return }
                 
                 context.comicBooks.append(contentsOf: models)
-                context.mainView?.updateTableView()
-                context.isLoading = false
                 context.offset += 1
+                context.isLoading = false
+                context.mainView?.updateTableView()
                 
                 if context.comicBooks.isEmpty {
                     context.mainView?.emptyResults()

@@ -62,7 +62,14 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let scrollingOffset = 2
+        guard let itemCount = self.mainPresenter?.getItemsCount() else { return }
+        
+        if indexPath.row == itemCount - scrollingOffset {
+            self.mainPresenter?.getComics()
+        }
+    }
 }
 
 extension MainViewController: UITableViewDataSource {

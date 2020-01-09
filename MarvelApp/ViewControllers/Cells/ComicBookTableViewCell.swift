@@ -20,16 +20,23 @@ class ComicBookTableViewCell: UITableViewCell {
     }
     
     func setupCell(model: ComicBookModel) {
-        guard
-            let path = model.thumbnail?.path,
-            let type = model.thumbnail?.type,
-            let title = model.title,
-            let description = model.comicDescription
-        else { return }
+        if let path = model.thumbnail?.path, let type = model.thumbnail?.type {
+            self.comicThumbnail.sd_setImage(with: URL(string: "\(path).\(type)")) { (image, error, cacheType, url) in }
+        } else {
+            self.comicThumbnail.image = UIImage(named: "placeholder")
+        }
         
-        self.comicThumbnail.sd_setImage(with: URL(string: "\(path).\(type)"), completed: nil)
-        self.comicTitle.text = title
-        self.comicDescription.text = description
+        if let title = model.title {
+            self.comicTitle.text = title
+        } else {
+            self.comicTitle.text = ""
+        }
+        
+        if let description = model.comicDescription {
+            self.comicDescription.text = description
+        } else {
+            self.comicDescription.text = ""
+        }
     }
 
 }
