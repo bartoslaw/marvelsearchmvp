@@ -35,7 +35,7 @@ class ComicBookTableViewCell: UITableViewCell {
         if let description = model.comicDescription {
             self.comicDescription.text = description
         } else {
-            self.comicDescription.text = ""
+            self.comicDescription.text = NSLocalizedString("missing.description", comment: "")
         }
     }
 

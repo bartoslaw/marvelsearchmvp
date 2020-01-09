@@ -3,3 +3,4 @@
 "empty.results" = "No results";
 "error.message" = "Error occured";
 "ok" = "Ok";
+"missing.description" = "Missing\nDescription";

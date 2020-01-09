@@ -39,9 +39,11 @@
                 <constraints>
                     <constraint firstItem="JQT-r2-fs8" firstAttribute="top" secondItem="aAY-Kq-s3h" secondAttribute="bottom" constant="8" id="0YX-1B-OS9"/>
                     <constraint firstItem="1zJ-rk-anb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6br-aw-25k"/>
+                    <constraint firstAttribute="bottom" secondItem="1zJ-rk-anb" secondAttribute="bottom" constant="34.5" id="BDL-Bg-ojZ"/>
                     <constraint firstItem="aAY-Kq-s3h" firstAttribute="leading" secondItem="1zJ-rk-anb" secondAttribute="trailing" constant="16" id="OEY-vb-RXK"/>
                     <constraint firstItem="JQT-r2-fs8" firstAttribute="leading" secondItem="1zJ-rk-anb" secondAttribute="trailing" constant="16" id="SuW-SL-LeJ"/>
                     <constraint firstItem="1zJ-rk-anb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YMH-mA-NpD"/>
+                    <constraint firstItem="1zJ-rk-anb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="34.5" id="cTU-hq-UCH"/>
                     <constraint firstAttribute="trailing" secondItem="JQT-r2-fs8" secondAttribute="trailing" constant="16" id="jKP-fz-Md4"/>
                     <constraint firstAttribute="trailing" secondItem="aAY-Kq-s3h" secondAttribute="trailing" constant="16" id="jpM-CC-ZFR"/>
                     <constraint firstItem="aAY-Kq-s3h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="kae-34-8u6"/>
