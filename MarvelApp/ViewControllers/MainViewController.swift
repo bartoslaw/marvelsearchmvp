@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
     var mainPresenter: MainPresenter?
     
+    @IBOutlet weak var emptyViewTitle: UILabel!
+    @IBOutlet weak var emptyView: UIStackView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -79,15 +81,24 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: MainView {
     func updateTableView() {
-        
+        self.emptyView.isHidden = true
+        self.tableView.isHidden = false
+        self.tableView.reloadData()
     }
     
     func displayError() {
+        let alertController = UIAlertController(title: "", message: NSLocalizedString("error.message", comment: ""), preferredStyle: .alert)
         
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: { (alert) in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func emptyResults() {
-        
+        self.emptyView.isHidden = false
+        self.tableView.isHidden = true
     }
 }
 

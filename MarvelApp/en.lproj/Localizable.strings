@@ -1,2 +1,5 @@
 "main.title" = "Marvel comics";
 "search.placeholder" = "Search";
+"empty.results" = "No results";
+"error.message" = "Error occured";
+"ok" = "Ok";

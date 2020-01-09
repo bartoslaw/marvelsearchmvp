@@ -12,6 +12,8 @@ class MarvelMainPresenter: MainPresenter {
     var apiService: ApiService?
     var mainView: MainView?
     
+    var comicBooks: [ComicBookModel] = []
+    
     func getComics() {
         
     }
@@ -21,11 +23,15 @@ class MarvelMainPresenter: MainPresenter {
     }
     
     func getItemsCount() -> Int {
-        return 0
+        return self.comicBooks.count
     }
     
-    func getItemAtPosition(index: Int) -> ComicBookModel {
-        return ComicBookModel(JSON: [:])!
+    func getItemAtPosition(index: Int) -> ComicBookModel? {
+        if self.comicBooks.count <= index {
+            return nil
+        }
+        
+        return self.comicBooks[index]
     }
     
     

@@ -15,5 +15,5 @@ protocol MainPresenter: class {
     func getComics()
     func searchComics(query: String)
     func getItemsCount() -> Int
-    func getItemAtPosition(index: Int) -> ComicBookModel
+    func getItemAtPosition(index: Int) -> ComicBookModel?
 }
