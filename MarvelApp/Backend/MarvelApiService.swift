@@ -18,11 +18,11 @@ class MarvelApiService: ApiService {
         return "https://gateway.marvel.com/v1/public/comics?ts=1&apikey=\(self.apiKey)&hash=\(self.hash)&limit=\(self.limit)&orderBy=-onsaleDate"
     }
 
-    func getComics() -> Single<[ComicBookModel]> {
+    func getComics(offset: Int) -> Single<[ComicBookModel]> {
         return Single.just([])
     }
     
-    func getComics(query: String) -> Single<[ComicBookModel]> {
+    func getComics(query: String, offset: Int) -> Single<[ComicBookModel]> {
         return Single.just([])
     }
 }

@@ -14,9 +14,9 @@
             filePath = "MarvelApp/ViewControllers/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "initData()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "setupSearchController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

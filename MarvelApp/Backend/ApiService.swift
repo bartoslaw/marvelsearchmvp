@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 protocol ApiService: class {    
-    func getComics() -> Single<[ComicBookModel]>
-    func getComics(query: String) -> Single<[ComicBookModel]>
+    func getComics(offset: Int) -> Single<[ComicBookModel]>
+    func getComics(query: String, offset: Int) -> Single<[ComicBookModel]>
     func baseUrl() -> String
 }

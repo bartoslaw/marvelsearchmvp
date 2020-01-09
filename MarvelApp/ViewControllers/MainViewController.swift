@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    let searchController = UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +41,13 @@ class MainViewController: UIViewController {
     }
     
     private func setupSearchController() {
+        self.searchController.delegate = self
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = NSLocalizedString("search.placeholder", comment: "")
         
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     private func initData() {
@@ -78,4 +86,12 @@ extension MainViewController: MainView {
     }
 }
 
+extension MainViewController: UISearchControllerDelegate {
+    
+}
 
+extension MainViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
