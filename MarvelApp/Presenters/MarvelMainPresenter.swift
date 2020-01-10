@@ -16,6 +16,7 @@ class MarvelMainPresenter: MainPresenter {
     
     var offset = 0
     var isLoading = false
+    var lastQuery = ""
     
     var comicBooks: [ComicBookModel] = []
     
@@ -26,56 +27,72 @@ class MarvelMainPresenter: MainPresenter {
         }
         
         self.isLoading = true
+        self.mainView?.showLoader()
         
         self.apiService?
             .getComics(offset: self.offset)
             .subscribe(onSuccess: { [weak self] models in
                 guard let context = self else { return }
-                
-                context.comicBooks.append(contentsOf: models)
-                context.offset += 1
-                context.isLoading = false
-                context.mainView?.updateTableView()
-                
-                if context.comicBooks.isEmpty {
-                    context.mainView?.emptyResults()
-                }
+                context.handleResponseSuccess(models: models)
             }, onError: { [weak self] _ in
                 guard let context = self else { return }
-                    
-                context.mainView?.displayError()
-                context.isLoading = false
+                context.handleResponseFailure()
             })
             .disposed(by: disposeBag)
     }
     
     func searchComics(query: String) {
         guard let disposeBag = self.disposeBag else { return }
+        
+        if query.isEmpty && self.offset != 0 {
+            self.offset = 0
+            self.comicBooks.removeAll()
+            self.getComics()
+            return
+        }
+        
         if self.isLoading {
             return
         }
         
+        if self.lastQuery != query {
+            self.comicBooks.removeAll()
+            self.offset = 0
+        }
+        
+        self.lastQuery = query
+        
         self.isLoading = true
+        self.mainView?.showLoader()
+        
         self.apiService?
             .getComics(query: query, offset: self.offset)
             .subscribe(onSuccess: { [weak self] models in
                 guard let context = self else { return }
-                
-                context.comicBooks.append(contentsOf: models)
-                context.offset += 1
-                context.isLoading = false
-                context.mainView?.updateTableView()
-                
-                if context.comicBooks.isEmpty {
-                    context.mainView?.emptyResults()
-                }
+                context.handleResponseSuccess(models: models)
             }, onError: { [weak self] _ in
                 guard let context = self else { return }
-                    
-                context.mainView?.displayError()
-                context.isLoading = false
+                context.handleResponseFailure()
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func handleResponseSuccess(models: [ComicBookModel]) {
+        self.mainView?.hideLoader()
+        self.comicBooks.append(contentsOf: models)
+        self.offset += 1
+        self.isLoading = false
+        self.mainView?.updateTableView()
+        
+        if self.comicBooks.isEmpty {
+            self.mainView?.emptyResults()
+        }
+    }
+    
+    private func handleResponseFailure() {
+        self.mainView?.hideLoader()
+        self.mainView?.displayError()
+        self.isLoading = false
     }
     
     func getItemsCount() -> Int {

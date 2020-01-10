@@ -53,25 +53,33 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="l7P-zm-adg">
+                                <rect key="frame" x="177.5" y="345.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VqJ-YL-hsv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1ff-wt-7eK"/>
                             <constraint firstItem="q62-tF-IlZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="6Q9-HY-neA"/>
                             <constraint firstItem="VqJ-YL-hsv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="74V-SI-G4o"/>
+                            <constraint firstItem="l7P-zm-adg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Ze-kn-wl2"/>
+                            <constraint firstItem="l7P-zm-adg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="95R-9D-7g5"/>
                             <constraint firstItem="ZbY-vV-5wd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="AhN-c1-Y1u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q62-tF-IlZ" secondAttribute="trailing" constant="16" id="Fx1-Yf-gmM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZbY-vV-5wd" secondAttribute="bottom" id="QJe-Q9-cdD"/>
+                            <constraint firstItem="6Op-GX-Dj2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZUo-bC-nxh"/>
                             <constraint firstItem="q62-tF-IlZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bxS-BY-Doj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZbY-vV-5wd" secondAttribute="trailing" constant="16" id="e9U-pZ-Ig1"/>
                             <constraint firstItem="VqJ-YL-hsv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="h1z-BS-hmP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VqJ-YL-hsv" secondAttribute="trailing" constant="50" id="jKP-XQ-ZQA"/>
                             <constraint firstItem="ZbY-vV-5wd" firstAttribute="top" secondItem="q62-tF-IlZ" secondAttribute="bottom" constant="8" id="mNz-Vc-VP3"/>
+                            <constraint firstItem="6Op-GX-Dj2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qol-f6-fan"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="B9q-MY-ljp"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="l7P-zm-adg" id="BWQ-tb-fMc"/>
                         <outlet property="emptyView" destination="VqJ-YL-hsv" id="0E3-iV-Afn"/>
                         <outlet property="emptyViewTitle" destination="6Op-GX-Dj2" id="VwJ-VZ-zfs"/>
                         <outlet property="tableView" destination="ZbY-vV-5wd" id="3uW-hD-ij5"/>

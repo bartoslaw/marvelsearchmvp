@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     var mainPresenter: MainPresenter?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emptyViewTitle: UILabel!
     @IBOutlet weak var emptyView: UIStackView!
     @IBOutlet weak var topLabel: UILabel!
@@ -20,6 +21,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.overrideUserInterfaceStyle = .light
         
         self.setupViews()
         self.setupTableView()
@@ -33,6 +35,8 @@ class MainViewController: UIViewController {
         
         self.emptyView.isHidden = true
         self.emptyViewTitle.text = NSLocalizedString("empty.results", comment: "")
+        
+        self.activityIndicator.isHidden = true
     }
     
     private func setupTableView() {
@@ -67,7 +71,13 @@ extension MainViewController: UITableViewDelegate {
         guard let itemCount = self.mainPresenter?.getItemsCount() else { return }
         
         if indexPath.row == itemCount - scrollingOffset {
-            self.mainPresenter?.getComics()
+            guard let query = self.searchController.searchBar.text else { return }
+            
+            if query.isEmpty {
+                self.mainPresenter?.getComics()
+            } else {
+                self.mainPresenter?.searchComics(query: query)
+            }
         }
     }
 }
@@ -110,6 +120,16 @@ extension MainViewController: MainView {
         self.emptyView.isHidden = false
         self.tableView.isHidden = true
     }
+    
+    func showLoader() {
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+    }
+    
+    func hideLoader() {
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
+    }
 }
 
 extension MainViewController: UISearchControllerDelegate {
@@ -118,6 +138,7 @@ extension MainViewController: UISearchControllerDelegate {
 
 extension MainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        guard let query = searchController.searchBar.text else { return }
+        self.mainPresenter?.searchComics(query: query)
     }
 }

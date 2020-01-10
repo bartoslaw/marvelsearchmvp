@@ -21,14 +21,14 @@ class MarvelApiService: ApiService {
     func baseUrl() -> String {
         return "https://gateway.marvel.com/v1/public/comics?ts=1&apikey=\(self.apiKey)&hash=\(self.hash)&limit=\(self.limit)&orderBy=-onsaleDate"
     }
-
+    
     func getComics(offset: Int) -> Single<[ComicBookModel]> {
         let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)"
         return self.makeRequest(endpoint: endpoint)
     }
     
     func getComics(query: String, offset: Int) -> Single<[ComicBookModel]> {
-        let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)&query=\(query)"
+        let endpoint = "\(self.baseUrl())&offset=\(offset * self.limit)&title=\(query)"
         return self.makeRequest(endpoint: endpoint)
     }
     
@@ -36,15 +36,20 @@ class MarvelApiService: ApiService {
         return Single<[ComicBookModel]>.create(subscribe: { (observer) -> Disposable in
             let request = Alamofire.request(endpoint)
             request.responseJSON { (response) in
-                guard
-                    let result = Mapper<ApiResponseModel>().map(JSONObject: response.result.value),
-                    let comicBooks = result.data?.results
-                else {
+                if response.result.isFailure {
                     observer(.error(BackendError.parsingError))
                     return
+                } else {
+                    guard
+                        let result = Mapper<ApiResponseModel>().map(JSONObject: response.result.value),
+                        let comicBooks = result.data?.results
+                        else {
+                            observer(.error(BackendError.parsingError))
+                            return
+                    }
+                    
+                    observer(.success(comicBooks))
                 }
-                
-                observer(.success(comicBooks))
             }
             
             return Disposables.create { request.cancel() }

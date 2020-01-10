@@ -12,4 +12,6 @@ protocol MainView: class {
     func updateTableView()
     func displayError()
     func emptyResults()
+    func showLoader()
+    func hideLoader()
 }
