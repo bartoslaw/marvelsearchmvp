@@ -16,6 +16,10 @@ class MockApiService: ApiService {
     }
     
     func getComics(offset: Int) -> Single<[ComicBookModel]> {
+        if offset == -1 {
+            return Single.error(MockError.error)
+        }
+        
         guard
             let comicBooks = self.getComicBooks()
         else {
@@ -60,4 +64,8 @@ class MockApiService: ApiService {
         }
         return nil
     }
+}
+
+enum MockError: Error, Equatable {
+    case error
 }
