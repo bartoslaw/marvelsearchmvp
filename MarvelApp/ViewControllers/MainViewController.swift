@@ -130,6 +130,10 @@ extension MainViewController: MainView {
         self.activityIndicator.isHidden = true
         self.activityIndicator.stopAnimating()
     }
+    
+    @objc func search(query: String) {
+        self.mainPresenter?.searchComics(query: query)
+    }
 }
 
 extension MainViewController: UISearchControllerDelegate {
@@ -139,6 +143,11 @@ extension MainViewController: UISearchControllerDelegate {
 extension MainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text else { return }
-        self.mainPresenter?.searchComics(query: query)
+        
+        NSObject.cancelPreviousPerformRequests(withTarget: self,
+                                               selector: #selector(self.search(query:)),
+                                               object: nil)
+
+        perform(#selector(self.search(query:)), with: query, afterDelay: 0.5)
     }
 }
