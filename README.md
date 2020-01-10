@@ -6,6 +6,7 @@ Marvel Search MVP
 2. This project uses CocoaPods so you need to run **pod install** before you start working on it, if you don't have pods installed here is the instruction [Using CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 3. From now on please remember to use **MarvelApp.xcworkspace** instaed of **MarvelApp.xcodeproj** (IMPORTANT!)
 4. In order to run the app just press cmd+r, in order to run tests cmd+u (they will require running simulator/phone)
+5. There is a small issue with SwinjectStoryboard. It will throw an error that SwinjectStoryboardOption doest not conform to the ServiceKey protocol. Please just make it conform and unlock the file and it will compile just fine.
 
 #### Architecture and project description:
 This small project is written in the MVP pattern
