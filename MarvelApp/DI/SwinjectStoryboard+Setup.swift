@@ -11,7 +11,7 @@ import SwinjectStoryboard
 import RxSwift
 
 extension SwinjectStoryboard {
-    @objc class func setup() {
+    @objc class func setup() {        
         defaultContainer.register(DisposeBag.self) { _ in
             DisposeBag()
         }.inObjectScope(.container)

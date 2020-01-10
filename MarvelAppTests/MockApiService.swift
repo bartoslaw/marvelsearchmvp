@@ -32,7 +32,7 @@ class MockApiService: ApiService {
             return Single.just([])
         }
         
-        return Single.just(comicBooks)
+        return Single.just(comicBooks.filter { $0.title!.contains(query) })
     }
     
     private func getComicBooks() -> [ComicBookModel]? {

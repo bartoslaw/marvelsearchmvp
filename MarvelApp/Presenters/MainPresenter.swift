@@ -14,6 +14,10 @@ protocol MainPresenter: class {
     var mainView: MainView? { get set }
     var apiService: ApiService? { get set }
     
+    var offset: Int { get set }
+    var isLoading: Bool { get set }
+    var lastQuery: String { get set }
+    
     func getComics()
     func searchComics(query: String)
     func getItemsCount() -> Int

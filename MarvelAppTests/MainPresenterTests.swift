@@ -7,27 +7,49 @@
 //
 
 import XCTest
+import RxSwift
 
 class MainPresenterTests: XCTestCase {
-
+    var mainPresenter: MarvelMainPresenter?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.mainPresenter = MarvelMainPresenter()
+        
+        self.mainPresenter?.apiService = MockApiService()
+        self.mainPresenter?.disposeBag = DisposeBag()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testOffsetIncrement() {
+        guard let mainPresenter = self.mainPresenter else {
+            XCTFail()
+            return
         }
+        
+        mainPresenter.getComics()
+        XCTAssert(mainPresenter.offset > 0)
+    }
+    
+    func testGetItemCount() {
+        guard let mainPresenter = self.mainPresenter else {
+            XCTFail()
+            return
+        }
+        
+        mainPresenter.getComics()
+        XCTAssert(mainPresenter.getItemsCount() > 0)
+    }
+    
+    func testGetItemAtPosition() {
+        guard let mainPresenter = self.mainPresenter else {
+            XCTFail()
+            return
+        }
+        
+        mainPresenter.getComics()
+        XCTAssert(mainPresenter.getItemAtPosition(index: 0) != nil)
     }
 
 }

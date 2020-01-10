@@ -34,7 +34,6 @@
 		D39B53F123C8848500BF5CA0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84C523C7897B00936465 /* ApiService.swift */; };
 		D39B53F223C8848A00BF5CA0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84DC23C793E500936465 /* MainView.swift */; };
 		D39B53F323C8848E00BF5CA0 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84C123C7885800936465 /* MainPresenter.swift */; };
-		D39B53F423C8849500BF5CA0 /* MarvelMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84DE23C7940600936465 /* MarvelMainPresenter.swift */; };
 		D39B53F523C887D800BF5CA0 /* ComicBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84C923C789AA00936465 /* ComicBookModel.swift */; };
 		D39B53F723C8890000BF5CA0 /* api_response.json in Resources */ = {isa = PBXBuildFile; fileRef = D39B53F623C8890000BF5CA0 /* api_response.json */; };
 		D39B53F823C8899A00BF5CA0 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84D323C78E6600936465 /* Thumbnail.swift */; };
@@ -42,6 +41,10 @@
 		D39B53FA23C8899A00BF5CA0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C41D8E23C7C77D0071DDAD /* DataModel.swift */; };
 		D39B53FC23C88A4600BF5CA0 /* MainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39B53FB23C88A4600BF5CA0 /* MainPresenterTests.swift */; };
 		D39B53FE23C88A5200BF5CA0 /* MainViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39B53FD23C88A5200BF5CA0 /* MainViewTests.swift */; };
+		D39B548723C8A69200BF5CA0 /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39B548623C8A69200BF5CA0 /* ApiServiceTests.swift */; };
+		D39B548823C8AB3100BF5CA0 /* api_response.json in Resources */ = {isa = PBXBuildFile; fileRef = D39B53F623C8890000BF5CA0 /* api_response.json */; };
+		D39B548B23C8BCC100BF5CA0 /* MarvelMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B84DE23C7940600936465 /* MarvelMainPresenter.swift */; };
+		D39B548E23C8BED900BF5CA0 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39B53EF23C8847600BF5CA0 /* MockApiService.swift */; };
 		D3C41D8D23C7C73D0071DDAD /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C41D8C23C7C73D0071DDAD /* ApiResponseModel.swift */; };
 		D3C41D8F23C7C77D0071DDAD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C41D8E23C7C77D0071DDAD /* DataModel.swift */; };
 /* End PBXBuildFile section */
@@ -102,6 +105,7 @@
 		D39B53F623C8890000BF5CA0 /* api_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = api_response.json; sourceTree = "<group>"; };
 		D39B53FB23C88A4600BF5CA0 /* MainPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTests.swift; sourceTree = "<group>"; };
 		D39B53FD23C88A5200BF5CA0 /* MainViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTests.swift; sourceTree = "<group>"; };
+		D39B548623C8A69200BF5CA0 /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		D3C41D8C23C7C73D0071DDAD /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
 		D3C41D8E23C7C77D0071DDAD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EB19F0C257F10670AA72AA8A /* Pods_MarvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +238,7 @@
 				D39B53F623C8890000BF5CA0 /* api_response.json */,
 				D39B53FB23C88A4600BF5CA0 /* MainPresenterTests.swift */,
 				D39B53FD23C88A5200BF5CA0 /* MainViewTests.swift */,
+				D39B548623C8A69200BF5CA0 /* ApiServiceTests.swift */,
 			);
 			path = MarvelAppTests;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				D3905A6723C75EC1000A9169 /* LaunchScreen.storyboard in Resources */,
 				D3905A6423C75EC1000A9169 /* Assets.xcassets in Resources */,
 				D3905A6223C75EC0000A9169 /* Main.storyboard in Resources */,
+				D39B548823C8AB3100BF5CA0 /* api_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +554,7 @@
 				D38B84DD23C793E500936465 /* MainView.swift in Sources */,
 				D38B84D223C78C7100936465 /* UITableViewCell+Extensions.swift in Sources */,
 				D38B84CA23C789AA00936465 /* ComicBookModel.swift in Sources */,
+				D39B548E23C8BED900BF5CA0 /* MockApiService.swift in Sources */,
 				D3905A5F23C75EC0000A9169 /* MainViewController.swift in Sources */,
 				D3C41D8F23C7C77D0071DDAD /* DataModel.swift in Sources */,
 				D38B84CE23C78A6F00936465 /* ComicBookTableViewCell.swift in Sources */,
@@ -567,13 +574,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39B53F323C8848E00BF5CA0 /* MainPresenter.swift in Sources */,
+				D39B548723C8A69200BF5CA0 /* ApiServiceTests.swift in Sources */,
 				D39B53FE23C88A5200BF5CA0 /* MainViewTests.swift in Sources */,
 				D39B53FC23C88A4600BF5CA0 /* MainPresenterTests.swift in Sources */,
 				D39B53F023C8847600BF5CA0 /* MockApiService.swift in Sources */,
-				D39B53F423C8849500BF5CA0 /* MarvelMainPresenter.swift in Sources */,
 				D39B53F223C8848A00BF5CA0 /* MainView.swift in Sources */,
 				D3905A7223C75EC2000A9169 /* MarvelAppTests.swift in Sources */,
 				D39B53FA23C8899A00BF5CA0 /* DataModel.swift in Sources */,
+				D39B548B23C8BCC100BF5CA0 /* MarvelMainPresenter.swift in Sources */,
 				D39B53F523C887D800BF5CA0 /* ComicBookModel.swift in Sources */,
 				D39B53F823C8899A00BF5CA0 /* Thumbnail.swift in Sources */,
 				D39B53F123C8848500BF5CA0 /* ApiService.swift in Sources */,
@@ -789,7 +797,6 @@
 			baseConfigurationReference = 7F0E83BB5180961B267BF492 /* Pods-MarvelAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DY8J4JRNQ;
 				INFOPLIST_FILE = MarvelAppTests/Info.plist;
@@ -812,7 +819,6 @@
 			baseConfigurationReference = A5E5846C33E1BD636A97237C /* Pods-MarvelAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DY8J4JRNQ;
 				INFOPLIST_FILE = MarvelAppTests/Info.plist;

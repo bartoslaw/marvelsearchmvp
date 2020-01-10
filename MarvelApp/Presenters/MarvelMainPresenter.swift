@@ -30,7 +30,7 @@ class MarvelMainPresenter: MainPresenter {
         self.mainView?.showLoader()
         
         self.apiService?
-            .getComics(offset: self.offset)
+            .getComics(offset: self.offset) 
             .subscribe(onSuccess: { [weak self] models in
                 guard let context = self else { return }
                 context.handleResponseSuccess(models: models)
