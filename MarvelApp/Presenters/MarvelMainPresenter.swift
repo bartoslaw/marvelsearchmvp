@@ -51,10 +51,6 @@ class MarvelMainPresenter: MainPresenter {
             return
         }
         
-        if self.isLoading {
-            return
-        }
-        
         if self.lastQuery != query {
             self.comicBooks.removeAll()
             self.offset = 0
@@ -62,7 +58,6 @@ class MarvelMainPresenter: MainPresenter {
         
         self.lastQuery = query
         
-        self.isLoading = true
         self.mainView?.showLoader()
         
         self.apiService?
